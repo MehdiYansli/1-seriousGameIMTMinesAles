@@ -18,8 +18,7 @@ class PersonnagesController extends AbstractController
         $personnages = $entityManager->getRepository(Personnages::class)->findAll();
 
         return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/PersonnagesController.php',
+            'personnages' => $personnages,
         ]);
     }
 }
