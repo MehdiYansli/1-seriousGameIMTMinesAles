@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<form method="post" class="vh-100 d-flex flex-column justify-content-center">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -13,8 +13,8 @@
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-    <div class="w-50 m-auto">
-        <h1 class="h3 mb-3 font-weight-normal text-center">Connection Administrateur</h1>
+    <div class="w-50 m-auto ">
+        <h1 class="h3 mb-3 font-weight-normal text-center text-primary">CONNEXION ADMINISTRATEUR</h1>
         <label for="inputUsername" class="form-label mt-3">Pseudo</label>
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
         <label for="inputPassword" class="form-label mt-3">Mot de passe</label>
@@ -22,11 +22,10 @@
         <input type="hidden" name="_csrf_token"
             value="{{ csrf_token('authenticate') }}">
   
-        {# <div class="checkbox mb-3">
+        <div class="checkbox mb-3 mt-3">
             <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div> #}
+                <input type="checkbox" name="_remember_me"> Rester connecté</label>
+        </div>
 
         <button class="btn btn-primary mt-3" type="submit">
             Connexion
