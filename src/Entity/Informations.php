@@ -23,6 +23,9 @@ class Informations
     #[ORM\Column(type: Types::TEXT)]
     private ?string $text = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $board = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Informations
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getBoard(): ?string
+    {
+        return $this->board;
+    }
+
+    public function setBoard(string $board): self
+    {
+        $this->board = $board;
 
         return $this;
     }
