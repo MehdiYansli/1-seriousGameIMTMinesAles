@@ -25,7 +25,7 @@ class PersonnagesCrudController extends AbstractCrudController
             IntegerField::new('positionX')->setLabel('Position en X'),
             IntegerField::new('positionY')->setLabel('Position en Y'),
             ChoiceField::new('name')
-            ->setLabel('Nom du personnage')
+            ->setLabel('Choix du personnage')
             ->setChoices([
             'Brune de face' => 'brunette_face',
             'Brune profil droit' => 'brunette_droite',
@@ -45,12 +45,6 @@ class PersonnagesCrudController extends AbstractCrudController
             'Papy de face' =>'papy_face',
             'Papy profil droit' =>'papy_droite',
             'Papy profil gauche' =>'papy_gauche']),
-            // ->setCustomOptions(['brunette_face','brunette_droite','brunette_gauche',
-            //                     'garcon_face','garcon_droite','garcon_gauche',
-            //                     'fille_face','fille_droite','fille_gauche',
-            //                     'casque_face','casque_droite','casque_gauche',
-            //                     'chauve_face','chauve_droite','chauve_gauche',
-            //                     'papy_face','papy_droite','papy_gauche']),
             TextareaField::new('text')->setLabel('Texte du personnage'),
         ];
     }

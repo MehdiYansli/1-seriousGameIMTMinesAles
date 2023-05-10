@@ -2,21 +2,21 @@
 
 namespace App\Controller;
 
-use App\Entity\Personnages;
+use App\Entity\Informations;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class PersonnagesController extends AbstractController
+class InformationsController extends AbstractController
 {
-    #[Route('/personnages', name: 'app_personnages')]
+    #[Route('/informations', name: 'app_informations')]
     public function index(EntityManagerInterface $entityManager): JsonResponse
     {
-        $personnages = $entityManager->getRepository(Personnages::class)->findAll();
+        $informations = $entityManager->getRepository(Informations::class)->findAll();
 
         return $this->json([
-            'personnages' => $personnages,
+            'informations' => $informations,
         ]);
     }
 }
