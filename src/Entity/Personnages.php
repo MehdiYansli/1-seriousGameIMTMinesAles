@@ -26,6 +26,9 @@ class  Personnages
     #[ORM\Column(type: Types::TEXT)]
     private ?string $text = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $speakerRole = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class  Personnages
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getSpeakerRole(): ?string
+    {
+        return $this->speakerRole;
+    }
+
+    public function setSpeakerRole(string $speakerRole): self
+    {
+        $this->speakerRole = $speakerRole;
 
         return $this;
     }

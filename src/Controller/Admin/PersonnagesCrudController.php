@@ -23,6 +23,7 @@ class PersonnagesCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TextareaField::new('speakerRole')->setLabel('Role du personnage'),
             IntegerField::new('positionX')->setLabel('Position en X'),
             IntegerField::new('positionY')->setLabel('Position en Y'),
             ChoiceField::new('name')
