@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PersonnagesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,14 @@ class  Personnages
 
     #[ORM\Column(length: 255)]
     private ?string $speakerRole = null;
+
+    #[ORM\OneToMany(mappedBy: 'personnages', targetEntity: Choices::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $choices;
+
+    public function __construct()
+    {
+        $this->choices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +100,36 @@ class  Personnages
     public function setSpeakerRole(string $speakerRole): self
     {
         $this->speakerRole = $speakerRole;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Choices>
+     */
+    public function getChoices(): Collection
+    {
+        return $this->choices;
+    }
+
+    public function addChoice(Choices $choice): self
+    {
+        if (!$this->choices->contains($choice)) {
+            $this->choices->add($choice);
+            $choice->setPersonnages($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChoice(Choices $choice): self
+    {
+        if ($this->choices->removeElement($choice)) {
+            // set the owning side to null (unless already changed)
+            if ($choice->getPersonnages() === $this) {
+                $choice->setPersonnages(null);
+            }
+        }
 
         return $this;
     }
