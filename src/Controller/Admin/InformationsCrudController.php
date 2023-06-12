@@ -20,7 +20,7 @@ class InformationsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            // IdField::new('id')->hideOnForm(),
             IntegerField::new('positionX')->setLabel('Position en X'),
             IntegerField::new('positionY')->setLabel('Position en Y'),
             ChoiceField::new('board')
