@@ -6,6 +6,7 @@ use App\Entity\Personnages;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Encoder\JsonEncode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PersonnagesController extends AbstractController
@@ -17,6 +18,8 @@ class PersonnagesController extends AbstractController
 
         return $this->json([
             'personnages' => $personnages,
+        ], context: [
+            JsonEncode::OPTIONS => \JSON_UNESCAPED_UNICODE
         ]);
     }
 }
