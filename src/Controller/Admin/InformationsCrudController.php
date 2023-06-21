@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Informations;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -20,7 +19,6 @@ class InformationsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            // IdField::new('id')->hideOnForm(),
             IntegerField::new('positionX')->setLabel('Position en X'),
             IntegerField::new('positionY')->setLabel('Position en Y'),
             ChoiceField::new('board')

@@ -3,14 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Personnages;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class PersonnagesCrudController extends AbstractCrudController
@@ -20,11 +17,11 @@ class PersonnagesCrudController extends AbstractCrudController
         return Personnages::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextareaField::new('speakerRole')->setLabel('Role du personnage'),
+            
+            TextField::new('speakerRole')->setLabel('Role du personnage'),
             IntegerField::new('positionX')->setLabel('Position en X'),
             IntegerField::new('positionY')->setLabel('Position en Y'),
             ChoiceField::new('name')

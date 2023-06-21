@@ -54,15 +54,15 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Serious Game - IMT Mines Ales');
+            ->setTitle('Serious Game');
     }
 
     public function configureMenuItems(): iterable
     {
         // yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', Admin::class);
-        yield MenuItem::linkToCrud('Personnages', 'fas fa-list', Personnages::class);
-        yield MenuItem::linkToCrud('Bâtiments', 'fas fa-list', Informations::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fa-solid fa-address-card', Admin::class);
+        yield MenuItem::linkToCrud('Personnages', 'fa-solid fa-users-between-lines', Personnages::class);
+        yield MenuItem::linkToCrud('Bâtiments', 'fa-solid fa-city', Informations::class);
 
     }
 }
