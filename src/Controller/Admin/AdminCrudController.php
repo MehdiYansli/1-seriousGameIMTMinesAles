@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -32,12 +33,18 @@ class AdminCrudController extends AbstractCrudController
             // IdField::new('id'),
             TextField::new('username', 'Identifiant'),
             TextField::new('password', 'Mot de passe')
-            ->setFormType(PasswordType::class)
+            ->setFormType(RepeatedType::class)
             ->setFormTypeOptions([
+                'type' => PasswordType::class,
+                'options' => [
+                    'attr' => [
+                        'autocomplete' => 'new-password',
+                    ],
+                ],
+                'invalid_message' => 'Votre mot de passe est invalide.',
                 'mapped' => false,
             ]),
             ChoiceField::new('roles', 'Rôle')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Utilisateur' => 'ROLE_USER'])->allowMultipleChoices(), 
-            
         ];
     }
     
