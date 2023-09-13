@@ -1,0 +1,3 @@
+<?php // test.encrypt.public on Tue, 12 Sep 2023 21:36:12 +0200
+
+return "\x2A5\xCCCF\x92\xDAx\xD3\xACT\xCC\x9E\x1FB\xF3jN\xF4\x9A\x9B\x07O\xDAQP\xD2qs\x20Vu";

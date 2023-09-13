@@ -29,5 +29,6 @@ class InformationsCrudController extends AbstractCrudController
             TextareaField::new('text')->setLabel('Texte du bâtiment'),
         ];
     }
-    
 }
+
+

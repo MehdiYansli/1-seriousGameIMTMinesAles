@@ -21,11 +21,10 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
-
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
     }
-
+    
     public function authenticate(Request $request): Passport
     {
         $username = $request->request->get('username', '');

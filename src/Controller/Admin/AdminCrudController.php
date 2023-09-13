@@ -75,7 +75,6 @@ class AdminCrudController extends AbstractCrudController
             if ($password === null) {
                 return;
             }
-
             $hash = $this->userPasswordHasher->hashPassword($form->getData(), $password);
             $form->getData()->setPassword($hash);
         };
